@@ -4,7 +4,8 @@
 - [CNN基本原理](#CNN基本原理)
   - [padding填白](#padding填白)
   - [stride步长](#stride步长)
-  - [CART算法](#CART算法)
+  - [pooling池化](#pooling池化)
+  - [对多通道（channels）图片的卷积](#对多通道（channels）图片的卷积)
 - [剪枝处理](#剪枝处理)
   - [预剪枝](#预剪枝)
   - [后剪枝](#后剪枝)
@@ -76,7 +77,13 @@
         - 列同理，所以输出的shape：(3,3)
 
 ### pooling池化
+- **是为了提取一定区域的主要特征，并减少参数数量，防止模型过拟合。**
+- 比如下面的MaxPooling，采用了一个2×2的窗口，并取stride=2：
     
-   
+<div align="center"><img src="./picture/maxpooling.png" height="" /></div>  
+
+- 除了MaxPooling,还有AveragePooling，顾名思义就是取那个区域的平均值。
+
+### 对多通道（channels）图片的卷积
 
 
