@@ -5,9 +5,9 @@
   - [padding填白](#padding填白)
   - [stride步长](#stride步长)
   - [pooling池化](#pooling池化)
-  - [对多通道（channels）图片的卷积](#对多通道（channels）图片的卷积)
-- [剪枝处理](#剪枝处理)
-  - [预剪枝](#预剪枝)
+  - [对多通道图片的卷积](#对多通道图片的卷积)
+- [CNN的结构组成](#CNN的结构组成)
+  - [Convolutional layer](#Convolutional layer)
   - [后剪枝](#后剪枝)
 
 
@@ -84,6 +84,31 @@
 
 - 除了MaxPooling,还有AveragePooling，顾名思义就是取那个区域的平均值。
 
-### 对多通道（channels）图片的卷积
+### 对多通道图片的卷积
+- 彩色图像，一般都是RGB三个通道（channel）的，因此输入数据的维度一般有三个：（**长，宽，通道**）。
+比如一个28×28的RGB图片，维度就是(28,28,3)。
 
+<div align="center"><img src="./picture/colorful.png" height="" /></div>  
+
+- 前面的引子中，输入图片是2维的(8,8)，filter是(3,3)，输出也是2维的(6,6)。
+- 如果输入图片是三维的呢（即增多了一个channels），比如是(8,8,3)，这个时候，我们的filter的维度就要变成(3,3,3)了，它的最后一维要跟输入的channel维度一致。
+- 这个时候的卷积，是三个channel的所有元素对应相乘后求和，也就是**之前是9个乘积的和，现在是27个乘积的和。因此，输出的维度并不会变化**。还是(6,6)。
+- **多个filters会增加输出的维度**，比如，如果我们同时使用4个filter的话，那么 输出的维度则会变为(6,6,4)。
+
+<div align="center"><img src="./picture/filters.png" height="" /></div> 
+
+- 图中的输入图像是(8,8,3)，filter有4个，大小均为(3,3,3)，得到的输出为(6,6,4)。
+
+--------------------------------------------------
+## CNN的结构组成
+### Convolutional layer
+- 卷积层--CONV：
+    - 由滤波器filters和激活函数构成。
+    - 一般要设置的超参数包括filters的数量、大小、步长，以及padding是“valid”还是“same”。当然，还包括选择什么激活函数。
+    
+### Pooling layer 
+- 池化层--POOL：
+    - 这里里面没有参数需要我们学习，因为这里里面的参数都是我们设置好了，要么是Maxpooling，要么是Averagepooling。
+    - 需要指定的超参数，包括是Max还是average，窗口大小以及步长。
+    - 通常，我们使用的比较多的是Maxpooling,而且一般取大小为(2,2)步长为2的filter，这样，经过pooling之后，输入的长宽都会缩小2倍，channels不变。
 
