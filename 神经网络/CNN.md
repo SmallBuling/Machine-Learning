@@ -101,12 +101,12 @@
 
 --------------------------------------------------
 ## CNN的结构组成
-### Convolutional layer
+### Convolutional_layer
 - 卷积层--CONV：
     - 由滤波器filters和激活函数构成。
     - 一般要设置的超参数包括filters的数量、大小、步长，以及padding是“valid”还是“same”。当然，还包括选择什么激活函数。
     
-### Pooling layer 
+### Pooling_layer 
 - 池化层--POOL：
     - 这里里面没有参数需要我们学习，因为这里里面的参数都是我们设置好了，要么是Maxpooling，要么是Averagepooling。
     - 需要指定的超参数，包括是Max还是average，窗口大小以及步长。
