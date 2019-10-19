@@ -17,7 +17,7 @@
 - 我们来看一个最简单的例子：“边界检测（edge detection）”；
 - 假设我们有这样的一张图片，大小8×8：
 
-<p style="text-align:center"><img src="./picture/边界检测.png" ></p>
+<div align="center"><img src="./picture/filter.png" height="" /></div>
 
 - 图片中的数字代表该位置的像素值，我们知道，像素值越大，颜色越亮，所以为了示意，我们把右边小像素的地方画成深色；
 - 图的中间两个颜色的分界线就是我们要检测的边界。
