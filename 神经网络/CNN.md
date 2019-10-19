@@ -7,7 +7,7 @@
   - [pooling池化](#pooling池化)
   - [对多通道图片的卷积](#对多通道图片的卷积)
 - [CNN的结构组成](#CNN的结构组成)
-  - [Convolutional layer](#Convolutional layer)
+  - [Convolutional layer](#Convolutional_layer)
   - [后剪枝](#后剪枝)
 
 
