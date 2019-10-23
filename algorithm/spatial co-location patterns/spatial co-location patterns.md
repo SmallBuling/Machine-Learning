@@ -69,11 +69,37 @@
 - 示例：假设{A3,C1,C3}是一个团，但它不是co-location{A,C}的行实例，因为团{A3,C1}或者{A3,C3}就已经包含了特征A和C。而在上图中，co-location{A,B,C}的表实例为{{A2,B4,C2},{A3,B3,C1}}。
 
 ### 参与率和参与度
-`a_{1}`
+- 参与度：在空间数据中衡量co-location模式的频繁性（有趣程度）所有的支持度标准不同于在事务数据中所有的支持度，在co-location模式挖掘中使用参与度度量一个模式的频繁（有趣）程度。
+- 参与率：
 
+<div align="center"><img src="./picture/参与率.png" height="" /></div>
 
+- co-location模式c的参与度表示为PI(c)，它是co-location模式c的所有空间特征的PR值的最小值：
 
+<div align="center"><img src="./picture/参与度公式.png" height="" /></div>
 
-    
+- 设min_prev是用户给定的最小参与度（最小频繁性）阈值，当PI(c)>=min_prev时，称co-location模式c是**频繁**的。
+- 示例：在上图中，特征A有4个实例，B有5个实例，C有3个实例，D有2个实例。假定一个co-location模式c={A,B,C},c的表实例{{A2,B4,C2},{A3,B3,C1}}。因为在A的实例中只有A2和A3出现在表实例中，所以PR(c,A)=2/4。类似地，PR(c,B)=2/5,PR(c,C)=2/3。最终PI(c)=min(PR(c,A),PR(c,B),PR(c,C))=2/5=0.4。
 
-   
+### co-location挖掘问题的流程
+- 大多数co-location挖掘算法通常将挖掘任务分解为两个子任务：
+    - 频繁co-location产生：其目标是发现满足最小参与度阈值min-prev的所有co-location模式
+    - co-location规则产生：其目标是从上一步发现的频繁co-location模式中提取所有高条件概率的规则
+- 通常，**第二个子任务的开销远低于第一个子任务的开销，co-location挖掘算法的总体性能由第一个子任务决定**。
+
+## co-location挖掘算法分类
+> co-location挖掘算法由多种分类方法，在此，我们将其分成基于最小参与率的挖掘算法，基于最大参与率的挖掘算法和复杂模式的挖掘算法3类。
+
+<div align="center"><img src="./picture/挖掘算法分类.png" height="" /></div>
+
+### 全连接算法的基本思想
+- 候选co-location的生成：
+    - 通过连接两个前k-1个特征相同的频繁k阶模式P，生成k+1阶候选模式，
+    - 同时检查生成的k+1阶候选模式的所有k阶子模式是否都是频繁的。
+- 表实例的生成：
+    - 设k阶模式c1和k阶模式c2连接得到k+1阶候选模式c3，
+    - 则候选模式c3的表实例是由模式c1的表实例Tk(c1)和模式c2的表实例Tk(c2)按前k-1个特征相同进行连接，
+    - 同时要求最后两个实例满足邻近关系R(last(c1),last(c2))
+
+<div align="center"><img src="./picture/挖掘算法分类.png" height="" /></div>   
+
