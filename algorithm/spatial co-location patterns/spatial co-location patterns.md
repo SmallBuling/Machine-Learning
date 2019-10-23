@@ -60,7 +60,16 @@
 <div align="center"><img src="./picture/团.png" height="" /></div>
 
 ### 空间co-location模式
-- 定义：一个空间co-location模式是一组空间特征的集合c,其中c$\sqsubseteq$F
+
+<div align="center"><img src="./picture/空间co-location模式.png" height="" /></div>
+
+### 行实例和表实例
+- 定义：如果团I包含了co-location模式c中的所有特征，并且I中没有任何一个子集可以包含c中的所有特征，那么I就是co-location模式c的一个**行实例**，记为row-instance(c)。co-location模式c中的所有行实例的集合称为**表实例**，记为table-instance(c)。
+
+- 示例：假设{A3,C1,C3}是一个团，但它不是co-location{A,C}的行实例，因为团{A3,C1}或者{A3,C3}就已经包含了特征A和C。而在上图中，co-location{A,B,C}的表实例为{{A2,B4,C2},{A3,B3,C1}}。
+
+### 参与率和参与度
+`$a_{1}$`
 
 
 
