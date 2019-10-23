@@ -30,9 +30,41 @@
 ## 基本概念
 ### 空间特征及空间实例
 - 空间特征：代表了空间中不同种类的事物；
-- 空间特征集：代表了空间中不同种类的事物的集合，记为
-- $a_{1}$
+- 空间特征集：代表了空间中不同种类的事物的集合，记为:
+
+<div align="center"><img src="./picture/空间特征集.png" height="" /></div>
+
+- 空间实例：一个具体空间位置上的对象称为空间实例，将实例的集合称为实例集，记为：
+
+<div align="center"><img src="./picture/实例集合.png" height="" /></div>
+
+<div align="center"><img src="./picture/空间特征和空间实例分布.png" height="" /></div>
+
+- 图中共有4个空间特征A、B、C、D
+    - 空间特征A有4个实例A1、A2、A3和A4;
+    - B有5个实例B1、B2、B3、B4和B5;
+    - C有3个实例C1、C2和C3;
+    - D有2个实例D1和D2.
+
+### 空间邻近关系
+- 定义：描述了空间实例之间的空间关系。
+- 空间邻近关系需要满足**自反性**和**对称性**。
+- 如果定义一个空间邻近关系R为欧几里得距离小于等于用户给定的阈值d，即可表示为：
+
+<div align="center"><img src="./picture/邻近关系R.png" height="" /></div>
+
+- 当两个空间实例满足空间邻近关系R时，称这两个实例**R邻近**,并在实例分布图中用线段连接它们。
+
+### 团
+
+<div align="center"><img src="./picture/团.png" height="" /></div>
+
+### 空间co-location模式
+- 定义：一个空间co-location模式是一组空间特征的集合c,其中c$\sqsubseteq$F
 
 
- 
+
+
+    
+
    
