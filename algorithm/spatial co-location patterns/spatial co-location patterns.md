@@ -101,5 +101,5 @@
     - 则候选模式c3的表实例是由模式c1的表实例Tk(c1)和模式c2的表实例Tk(c2)按前k-1个特征相同进行连接，
     - 同时要求最后两个实例满足邻近关系R(last(c1),last(c2))
 
-<div align="center"><img src="./picture/挖掘算法分类.png" height="" /></div>   
+<div align="center"><img src="./picture/全连接算法示例.png" height="" /></div>   
 
